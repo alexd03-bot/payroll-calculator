@@ -7,6 +7,8 @@ public class PayrollHelp {
 
         //Exercise 5
 
+        //Step 1
+
         Scanner myScanner = new Scanner(System.in);
 
         System.out.println("Enter your name: \n");
@@ -21,7 +23,6 @@ public class PayrollHelp {
         float gross_pay = hours * pay;
 
         System.out.printf("%s, you will make %.2f this week", name, gross_pay);
-
 
 
 

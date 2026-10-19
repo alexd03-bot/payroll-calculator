@@ -12,9 +12,10 @@ public class PayrollHelp {
         double hours = getHours(input);
         double pay = getPay(input);
 
-        double total = hours * pay;
+        double total = getTotal(hours, pay);
+        double otPay = calculateOt(hours, pay);
 
-        System.out.printf("%s, your gross pay is %.2f", name, total);
+        System.out.printf("%s, your gross pay is %.2f, you have %.2f overtime pay.", name, total, otPay);
 
         //Exercise 5
 
@@ -51,21 +52,29 @@ public class PayrollHelp {
     }
 
     public static double getPay(Scanner input) {
-        System.out.println("Enter your par rate: ");
+        System.out.println("Enter your pay rate: ");
         double pay = input.nextDouble();
         return pay;
 
+    }
+
+    public static double getTotal(double pay, double hours) {
+        System.out.println("Enter your gross pay: ");
+        double total = pay * hours;
+        return total;
 
     }
 
+    public static double calculateOt(double hours, double pay) {
+        double otHours = 0;
+        if(hours > 40) {
+            otHours = hours - 40;
+        }
+        double otPayRate = 1.5 * pay;
+        double otPay = otHours * otPayRate;
+        return otPay;
 
-
-
-
-
-
-
-
+    }
 
 
 
